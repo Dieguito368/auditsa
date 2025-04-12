@@ -1,4 +1,18 @@
-export const channels = {
+export type Channel = {
+    url: string
+    server: number
+    locality: string
+    ID: number
+    season: string
+    name: string
+    type: "TVA" | "TVL" | "TVP"
+} 
+
+type Channels = {
+    [ key: string ]: Channel[]
+}
+
+export const channels: Channels = {
     CDMX3_52: [
         { url: "Real://192.168.3.52/0/5050", server: 3.52, locality: "CDMX-Monitor3", ID: 70, season: "CDMX XHIMT-TV - (7.1 TVA)", name: "Azteca 7", type: "TVA" },
         { url: "Real://192.168.3.52/1/5050", server: 3.52, locality: "CDMX-Monitor3", ID: 68, season: "XHTV-TV - (4.1 TVA)", name: "Foro TV Televisa", type: "TVA" },
@@ -46,5 +60,22 @@ export const channels = {
         { url: "Real://192.168.3.53/22/5050", server: 3.53, locality: "CDMX-Monitor4", ID: 2001, season: "SKY AXN - (213 TVP)", name: "AXN", type: "TVP" },
         { url: "Real://192.168.3.53/23/5050", server: 3.53, locality: "CDMX-Monitor4", ID: 2935, season: "SKY FOX SPORTS 3 - (559 TVP)", name: "Fox Sports 3", type: "TVP" },
         { url: "Real://192.168.3.53/24/5050", server: 3.53, locality: "CDMX-Monitor4", ID: 1677, season: "SKY EI - (206 TVP)", name: "E! Entertainment", type: "TVP" }
+    ],
+    CDMX3_54: [
+
+    ],
+    CDMX2_B: [
+        
+    ],
+    ZAPOPAN: [
+
+    ],
+    GUADALAJARA: [
+
+    ], 
+    MONTERREY: [
+
+    ],CDMX2_B_RESPALDO: [
+
     ]
 }
