@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { Channel, channels } from "./data/channels";
+import 'animate.css';
 
 function App() {
     const [ selectedLocality , setSelectedLocality ] = useState("");
@@ -16,9 +17,28 @@ function App() {
         setLocalityChannels(updatedLocalityChannels);
     }
 
+    const handleClickJump = () => {
+        const currentChannel = localityChannels[0];
+        
+        const newArray = localityChannels.filter(channel => channel.ID !== currentChannel.ID);
+
+        setLocalityChannels([ ...newArray,  currentChannel]);
+    };
+
     const copyToClipboard = (ID: string) => {
         navigator.clipboard.writeText(ID)
             .then(() => {
+            })
+            .catch((err) => {
+                console.error("Error al copiar: ", err);
+            });
+    };
+
+    const copyRowToClipboard = (channel: Channel) => {
+        const rowText = `${channel.server}\t${channel.locality}\t${channel.ID}\t${channel.season}`;
+        navigator.clipboard.writeText(rowText)
+            .then(() => {
+                console.log("Copiado al portapapeles:", rowText);
             })
             .catch((err) => {
                 console.error("Error al copiar: ", err);
@@ -56,11 +76,11 @@ function App() {
             {
                 localityChannels.length > 0 &&
                     <div className="mt-5">
-                        <p>{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length } </p>
+                        <p>{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
 
-                        {/* <div className="w-full h-6 rounded-full border">
-                            { 100 - (localityChannels.length * 100 / channels[selectedLocality].length)  }
-                        </div> */}
+                        <div className="w-full h-6 rounded-full border">
+                            <div className={ `w-[${channels[selectedLocality].length - localityChannels.length * 100 / channels[selectedLocality].length}%] bg-black h-full rounded-full` }></div>
+                        </div>
 
                         <table className="table-auto border border-black border-collapse w-full mt-5">
                             <thead className="bg-[#FF99FF]">
@@ -70,6 +90,7 @@ function App() {
                                     <th className="border border-black px-2 py-2">ID</th>
                                     <th className="border border-black px-2 py-2">ESTACIÓN/SIGLAS</th>
                                     <th className="border border-black px-2 py-2">NOMBRE</th>
+                                    <th className="border border-black px-2 py-2">ACCIONES</th>
                                 </tr>
                             </thead>
 
@@ -78,16 +99,30 @@ function App() {
                                     <td className="border border-black px-2 py-1">{ localityChannels[0].server }</td>
                                     <td className="border border-black px-2 py-1">{ localityChannels[0].locality }</td>
                                     <td 
-                                        className="border border-black px-2 py-1"
+                                        className="border border-black px-2 py-1 cursor-pointer"
                                         onClick={ () => copyToClipboard(localityChannels[0].ID.toString()) }
                                     >{ localityChannels[0].ID }</td>
                                     <td className="border border-black px-2 py-1">{ localityChannels[0].season }</td>
                                     <td className="border border-black px-2 py-1">{ localityChannels[0].name }</td>
+                                    <td>
+                                        <button
+                                            onClick={ () => copyRowToClipboard(localityChannels[0]) }
+                                            className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-2 py-1 rounded"
+                                        >
+                                            Drive
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <div className="flex justify-center mt-5">
+                        <div className="flex justify-center gap-15 mt-5">
+                            <button 
+                                type="button" 
+                                onClick={ handleClickJump }
+                                className="bg-gray-600 text-white w-40 py-1 cursor-pointer hover:bg-gray-700 rounded transition-colors"
+                            >Saltar</button>
+
                             <button 
                                 type="button" 
                                 onClick={ handleClickOK }
