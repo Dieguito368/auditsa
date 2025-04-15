@@ -15,6 +15,12 @@ function App() {
         const updatedLocalityChannels = localityChannels.filter(channel => channel.ID !== localityChannels[0].ID);
 
         setLocalityChannels(updatedLocalityChannels);
+
+        console.log(localityChannels.length);
+
+        if(localityChannels.length == 1) {
+            setSelectedLocality("");
+        }
     }
 
     const handleClickJump = () => {
@@ -28,6 +34,7 @@ function App() {
     const copyToClipboard = (ID: string) => {
         navigator.clipboard.writeText(ID)
             .then(() => {
+                alert("Copiado");
             })
             .catch((err) => {
                 console.error("Error al copiar: ", err);
@@ -38,10 +45,11 @@ function App() {
         const rowText = `${channel.server}\t${channel.locality}\t${channel.ID}\t${channel.season}`;
         navigator.clipboard.writeText(rowText)
             .then(() => {
-                console.log("Copiado al portapapeles:", rowText);
+                alert("Copiado al portapapeles");
             })
             .catch((err) => {
-                console.error("Error al copiar: ", err);
+                alert("Error al copiar");
+                console.log("Error al copiar: ", err);
             });
     };
 
@@ -78,15 +86,9 @@ function App() {
                     <div className="mt-5">
                         <p>{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
 
-                        <div className="w-full h-6 rounded-full border">
-                            <div className={ `w-[${channels[selectedLocality].length - localityChannels.length * 100 / channels[selectedLocality].length}%] bg-black h-full rounded-full` }></div>
-                        </div>
-
                         <table className="table-auto border border-black border-collapse w-full mt-5">
                             <thead className="bg-[#FF99FF]">
                                 <tr className="text-sm">
-                                    <th className="border border-black px-2 py-2">SERVIDOR</th>
-                                    <th className="border border-black px-2 py-2">LOCALIDAD</th>
                                     <th className="border border-black px-2 py-2">ID</th>
                                     <th className="border border-black px-2 py-2">ESTACIÓN/SIGLAS</th>
                                     <th className="border border-black px-2 py-2">NOMBRE</th>
@@ -96,8 +98,6 @@ function App() {
 
                             <tbody className="bg-[#FFFF00]">
                                 <tr className="text-sm text-center">
-                                    <td className="border border-black px-2 py-1">{ localityChannels[0].server }</td>
-                                    <td className="border border-black px-2 py-1">{ localityChannels[0].locality }</td>
                                     <td 
                                         className="border border-black px-2 py-1 cursor-pointer"
                                         onClick={ () => copyToClipboard(localityChannels[0].ID.toString()) }
@@ -107,7 +107,7 @@ function App() {
                                     <td>
                                         <button
                                             onClick={ () => copyRowToClipboard(localityChannels[0]) }
-                                            className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-2 py-1 rounded"
+                                            className="border border-gray-700 hover:bg-black hover:text-white font-semibold px-2 py-1 rounded cursor-pointer transition-colors"
                                         >
                                             Drive
                                         </button>
