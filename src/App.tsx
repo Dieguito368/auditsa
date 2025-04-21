@@ -15,7 +15,6 @@ function App() {
     const [ occupied, setOccupied ] = useState<string[]>([]);
     const [ userList, setUserList ] = useState<{ name: string, locality: string | null }[]>([]);
 
-
     useEffect(() => {
         socket.on("occupiedLocalities", (data: string[]) => {
             setOccupied(data);
@@ -92,50 +91,53 @@ function App() {
                         setIsInvited={ setIsInvited }
                     /> 
                 :
-                    <>
+                    <div className="w-full px-10 py-5 md:w-3/4 mx-auto">
                         {
                             isInvited ?
-                                <div className="overflow-x-auto p-4">
+                                <>
                                     <h2 className="text-xl font-bold mb-4">Tabla de Localidades</h2>
-                            
-                                    <table className="min-w-full border border-black border-collapse">
-                                        <thead className="bg-gray-200">
-                                            <tr>
-                                                <th className="border border-black px-2 py-1">Usuario</th>
+
+                                    <div className="overflow-x-auto">
+                                        <table className="min-w-full border border-black border-collapse overflow-x-auto">
+                                            <thead className="bg-gray-200">
+                                                <tr>
+                                                    <th className="border border-black px-2 py-1">Usuario</th>
+                                                    {
+                                                        Object.keys(channels).map(loc => (
+                                                            <th key={ loc } className="border border-black px-2 py-1">
+                                                                { loc.replace(/_/g, " ") }
+                                                            </th>
+                                                        ))
+                                                    }
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
                                                 {
-                                                    Object.keys(channels).map(loc => (
-                                                        <th key={loc} className="border border-black px-2 py-1">
-                                                            {loc.replace(/_/g, " ")}
-                                                        </th>
+                                                    userList.map(user => (
+                                                        <tr key={ user.name }>
+                                                            <td className="border border-black px-2 py-1 font-semibold">{ user.name }</td>
+                                                            {
+                                                                Object.keys(channels).map(loc => (
+                                                                    <td
+                                                                        key={ loc }
+                                                                        className={`border border-black px-2 py-1 text-center ${
+                                                                            user.locality === loc ? "bg-green-400 font-bold" : ""
+                                                                        }`}
+                                                                    >
+                                                                        { user.locality === loc ? "✓" : "" }
+                                                                    </td>
+                                                                ))
+                                                            }
+                                                        </tr>
                                                     ))
                                                 }
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {
-                                                userList.map(user => (
-                                                    <tr key={user.name}>
-                                                        <td className="border border-black px-2 py-1 font-semibold">{user.name}</td>
-                                                        {
-                                                            Object.keys(channels).map(loc => (
-                                                                <td
-                                                                    key={loc}
-                                                                    className={`border border-black px-2 py-1 text-center ${
-                                                                        user.locality === loc ? "bg-green-400 font-bold animate__animated animate__pulse" : ""
-                                                                    }`}
-                                                                >
-                                                                    {user.locality === loc ? "✓" : ""}
-                                                                </td>
-                                                            ))
-                                                        }
-                                                    </tr>
-                                                ))
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </>
                             :
-                                <div className="w-full px-10 py-5 md:w-3/4 mx-auto">
+                                <>
                                     <div>
                                         <label 
                                             htmlFor="locality"
@@ -209,9 +211,9 @@ function App() {
                                                 </div>
                                             </div>
                                     }
-                                </div>
+                                </>
                         }
-                    </>
+                    </div>
             }
         </>
     )
