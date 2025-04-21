@@ -91,6 +91,12 @@ function App() {
                         setIsInvited={ setIsInvited }
                     /> 
                 :
+                <div>
+                    <div className="border-b-4 border-orange-600 p-5 px-10 flex items-center justify-between">
+                        <h1 className="font-black text-5xl">Auditsa</h1>
+                        <p className="text-xl">¡Hola{ selectedUser && ` ${selectedUser}` }!</p>
+                    </div>
+
                     <div className="w-full px-10 py-5 md:w-3/4 mx-auto">
                         {
                             isInvited ?
@@ -214,6 +220,7 @@ function App() {
                                 </>
                         }
                     </div>
+                </div>
             }
         </>
     )
