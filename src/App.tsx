@@ -61,7 +61,6 @@ function App() {
     const copyToClipboard = (ID: string) => {
         navigator.clipboard.writeText(ID)
             .then(() => {
-                alert("Copiado");
             })
             .catch((err) => {
                 console.error("Error al copiar: ", err);

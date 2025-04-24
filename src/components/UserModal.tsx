@@ -76,7 +76,8 @@ const UserModal = ({ selectedUser, setSelectedUser,  setIsVisibleModal, setIsInv
                                 disabled={ selectedUser === "" }
                                 onClick={ handleJoin }
                             >
-                                <LogIn size={ 22 }/>
+                                <LogIn size={ 22 } />
+
                                 <div className="mt-1">
                                     Entrar
                                 </div>
@@ -85,6 +86,7 @@ const UserModal = ({ selectedUser, setSelectedUser,  setIsVisibleModal, setIsInv
                             <button 
                                 type="button" 
                                 className="w-full md:w-14rem font-bold text-xs flex uppercase justify-center items-center gap-5 p-2 hover:text-orange-600 transition-colors"
+                                disabled={ selectedUser !== "" }
                                 onClick={ 
                                     () => {
                                         setIsInvited(true);
@@ -93,6 +95,7 @@ const UserModal = ({ selectedUser, setSelectedUser,  setIsVisibleModal, setIsInv
                                 }
                             >
                                 <User size={ 22 } />
+
                                 <div className="mt-1">
                                     Entrar como invitado
                                 </div>
