@@ -85,7 +85,7 @@ const UserModal = ({ selectedUser, setSelectedUser,  setIsVisibleModal, setIsInv
 
                             <button 
                                 type="button" 
-                                className="w-full md:w-14rem font-bold text-xs flex uppercase justify-center items-center gap-5 p-2 hover:text-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-black"
+                                className="w-full md:w-14rem font-bold text-xs flex uppercase justify-center items-center gap-5 p-2 hover:text-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:text-black"
                                 disabled={ selectedUser !== "" }
                                 onClick={ 
                                     () => {
