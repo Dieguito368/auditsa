@@ -186,7 +186,16 @@ function App() {
                                                         showGridlines 
                                                         tableStyle={{ fontSize: "15px" }}
                                                     >
-                                                        <Column field="ID" header="ID"></Column>
+                                                        <Column field="ID" header="ID"
+                                                            body={ (rowData: any) => (
+                                                                <div
+                                                                  onClick={ () => copyToClipboard(rowData.ID) }
+                                                                  className="cursor-pointer text-blue-500"
+                                                                >
+                                                                  { rowData.ID }
+                                                                </div>
+                                                              )}
+                                                            ></Column>
                                                         <Column field="season" header="ESTACIÓN/SIGLAS" ></Column>
                                                         <Column field="name" header="NOMBRE"></Column>
                                                         <Column 
