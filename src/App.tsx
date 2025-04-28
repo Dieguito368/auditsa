@@ -5,6 +5,10 @@ import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
 import { Channel, channels } from "./data/channels";
 import 'primeicons/primeicons.css';
 import 'animate.css';
+import { toast, ToastContainer } from "react-toastify";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { ArrowRight, BookmarkCheck, CheckCircle, ChevronRight, ClipboardPaste, Server, Wifi } from "lucide-react";
 
 function App() {
     const [ selectedUser, setSelectedUser ] = useState<string>("");
@@ -61,20 +65,24 @@ function App() {
     const copyToClipboard = (ID: string) => {
         navigator.clipboard.writeText(ID)
             .then(() => {
+                toast.success("Copiado");
             })
             .catch((err) => {
                 console.error("Error al copiar: ", err);
+                toast.error("Error al copiar");
+                console.log("Error al copiar: ", err);
             });
     };
 
     const copyRowToClipboard = (channel: Channel) => {
-        const rowText = `${channel.server}\t${channel.locality}\t${channel.ID}\t${channel.season}`;
+        const rowText = `${channel.server || ""}\t${channel.locality}\t${channel.ID}\t${channel.season}`;
+
         navigator.clipboard.writeText(rowText)
             .then(() => {
-                alert("Copiado al portapapeles");
+                toast.success("Copiado al portapapeles");
             })
             .catch((err) => {
-                alert("Error al copiar");
+                toast.error("Error al copiar");
                 console.log("Error al copiar: ", err);
             });
     };
@@ -90,144 +98,138 @@ function App() {
                         setIsInvited={ setIsInvited }
                     /> 
                 :
-                <div>
-                    <div className="border-b-4 border-orange-600 p-5 px-10 flex items-center justify-between">
-                        <h1 className="font-black text-5xl">Auditsa</h1>
-                        <p className="text-xl">¡Hola{ selectedUser && ` ${selectedUser}` }!</p>
-                    </div>
+                    <div className="animate__animated animate__fadeIn">
+                        <div className="border-b-4 border-orange-600 p-5 px-10 flex items-center justify-between">
+                            <h1 className="font-black text-5xl">Auditsa</h1>
+                            <p className="text-xl">¡Hola{ selectedUser && ` ${selectedUser}` }!</p>
+                        </div>
 
-                    <div className="w-full px-10 py-5 md:w-3/4 mx-auto">
-                        {
-                            isInvited ?
-                                <>
-                                    <h2 className="text-xl font-bold mb-4">Tabla de Localidades</h2>
+                        <div className="w-full px-10 py-5 md:w-3/4 mx-auto">
+                            {
+                                isInvited ?
+                                    <>
+                                        <h2 className="text-xl font-bold mb-4">Tabla de Localidades</h2>
 
-                                    <div className="overflow-x-auto">
-                                        <table className="min-w-full border border-black border-collapse overflow-x-auto">
-                                            <thead className="bg-gray-200">
-                                                <tr>
-                                                    <th className="border border-black px-2 py-1">Usuario</th>
+                                        <div className="overflow-x-auto">
+                                            <table className="min-w-full border-collapse overflow-x-auto">
+                                                <thead className="bg-slate-100">
+                                                    <tr>
+                                                        <th className="border border-gray-300 px-5 py-2 text-sm">Usuario</th>
+                                                        {
+                                                            Object.keys(channels).map(loc => (
+                                                                <th key={ loc } className="border border-gray-300 px-2 py-1 text-sm">
+                                                                    { loc.replace(/_/g, " ") }
+                                                                </th>
+                                                            ))
+                                                        }
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
                                                     {
-                                                        Object.keys(channels).map(loc => (
-                                                            <th key={ loc } className="border border-black px-2 py-1">
-                                                                { loc.replace(/_/g, " ") }
-                                                            </th>
+                                                        userList.map(user => (
+                                                            <tr key={ user.name }>
+                                                                <td className="border border-gray-300 px-2 py-3 font-semibold text-center text-sm">{ user.name }</td>
+                                                                {
+                                                                    Object.keys(channels).map(loc => (
+                                                                        <td
+                                                                            key={ loc }
+                                                                            className={`border border-gray-300 px-2 py-1 text-center ${
+                                                                                user.locality === loc ? "bg-green-500 text-white font-bold" : ""
+                                                                            }`}
+                                                                        >
+                                                                            { user.locality === loc ? <CheckCircle width={ 20 } className="mx-auto" /> : "" }
+                                                                        </td>
+                                                                    ))
+                                                                }
+                                                            </tr>
                                                         ))
                                                     }
-                                                </tr>
-                                            </thead>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </>
+                                :
+                                    <>
+                                        <ToastContainer />
 
-                                            <tbody>
-                                                {
-                                                    userList.map(user => (
-                                                        <tr key={ user.name }>
-                                                            <td className="border border-black px-2 py-1 font-semibold">{ user.name }</td>
-                                                            {
-                                                                Object.keys(channels).map(loc => (
-                                                                    <td
-                                                                        key={ loc }
-                                                                        className={`border border-black px-2 py-1 text-center ${
-                                                                            user.locality === loc ? "bg-green-400 font-bold" : ""
-                                                                        }`}
-                                                                    >
-                                                                        { user.locality === loc ? "✓" : "" }
-                                                                    </td>
-                                                                ))
-                                                            }
-                                                        </tr>
-                                                    ))
+                                        <div>
+                                            <label 
+                                                htmlFor="locality"
+                                                className="block"
+                                            >Localidad:</label>
+
+                                            <Dropdown
+                                                value={ selectedLocality }
+                                                onChange={ handleChangeLocality }
+                                                options={
+                                                    Object.keys(channels)
+                                                        .filter(loc => !occupied.includes(loc) || loc === selectedLocality)
+                                                        .map(loc => ({
+                                                            label: loc.replace(/_/g, ' '),
+                                                            value: loc
+                                                        }))
                                                 }
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </>
-                            :
-                                <>
-                                    <div>
-                                        <label 
-                                            htmlFor="locality"
-                                            className="block"
-                                        >Localidad:</label>
+                                                placeholder="Selecciona una localidad"
+                                                className="w-full mt-2 mb-4"
+                                                disabled={ selectedLocality !== "" }
+                                            />
+                                        </div>
 
-                                        <Dropdown
-                                            value={ selectedLocality }
-                                            onChange={ handleChangeLocality }
-                                            options={
-                                                Object.keys(channels)
-                                                    .filter(loc => !occupied.includes(loc) || loc === selectedLocality)
-                                                    .map(loc => ({
-                                                        label: loc.replace(/_/g, ' '),
-                                                        value: loc
-                                                    }))
-                                            }
-                                            placeholder="Selecciona una localidad"
-                                            className="w-full mt-2 mb-4"
-                                            disabled={ selectedLocality !== "" }
-                                        />
-                                    </div>
+                                        {
+                                            localityChannels.length > 0 &&
+                                                <div className="mt-5">
+                                                    <p className="mb-5">{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
 
-                                    {
-                                        localityChannels.length > 0 &&
-                                            <div className="mt-5">
-                                                <p>{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
+                                                    <DataTable 
+                                                        value={ localityChannels[0] ? [localityChannels[0]] : [] } 
+                                                        showGridlines 
+                                                        tableStyle={{ fontSize: "15px" }}
+                                                    >
+                                                        <Column field="ID" header="ID"></Column>
+                                                        <Column field="season" header="ESTACIÓN/SIGLAS" ></Column>
+                                                        <Column field="name" header="NOMBRE"></Column>
+                                                        <Column 
+                                                            header="Acciones"
+                                                            body={ 
+                                                                (rowData: Channel) => (
+                                                                    <button
+                                                                        onClick={ () => copyRowToClipboard(rowData) }
+                                                                        className="border flex border-gray-700 text-sm  items-center  gap-2 hover:bg-black hover:text-white font-semibold px-3 py-1 rounded cursor-pointer transition-colors"
+                                                                    >
+                                                                        <ClipboardPaste width={ 16 } />
+                                                                        Drive
+                                                                    </button>
+                                                                )
+                                                            }
+                                                        ></Column>
+                                                    </DataTable>
 
-                                                <table className="table-auto border border-black border-collapse w-full mt-5">
-                                                    <thead className="bg-[#FF99FF]">
-                                                        <tr className="text-sm">
-                                                            <th className="border border-black px-2 py-2">URL</th>
-                                                            <th className="border border-black px-2 py-2">SERVIDOR</th>
-                                                            <th className="border border-black px-2 py-2">LOCALIDAD</th>
-                                                            <th className="border border-black px-2 py-2">ID</th>
-                                                            <th className="border border-black px-2 py-2">ESTACIÓN/SIGLAS</th>
-                                                            <th className="border border-black px-2 py-2">NOMBRE</th>
-                                                            <th className="border border-black px-2 py-2">TIPO</th>
-                                                            <th className="border border-black px-2 py-2">ACCIONES</th>
-                                                        </tr>
-                                                    </thead>
+                                                    <div className="flex justify-center gap-16 mt-8">
+                                                        <button 
+                                                            type="button" 
+                                                            onClick={ handleClickJump }
+                                                            className=" rounded bg-gray-500 w-32 py-2 text-white font-bold text-xs flex uppercase justify-center items-center gap-2 p-2 hover:bg-gray-600 transition-colors"
+                                                        >
+                                                            <ArrowRight size={ 22 } />
+                                                            Saltar
+                                                        </button>
 
-                                                    <tbody className="bg-[#FFFF00]">
-                                                        <tr className="text-sm text-center">
-                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].url }</td>
-                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].server }</td>
-                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].locality }</td>
-                                                            <td 
-                                                                className="border border-black px-2 py-1 cursor-pointer"
-                                                                onClick={ () => copyToClipboard(localityChannels[0].ID.toString()) }
-                                                            >{ localityChannels[0].ID }</td>
-                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].season }</td>
-                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].name }</td>
-                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].type }</td>
-                                                            <td>
-                                                                <button
-                                                                    onClick={ () => copyRowToClipboard(localityChannels[0]) }
-                                                                    className="border border-gray-700 hover:bg-black hover:text-white font-semibold px-2 py-1 rounded cursor-pointer transition-colors"
-                                                                >
-                                                                    Drive
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                <div className="flex justify-center gap-16 mt-5">
-                                                    <button 
-                                                        type="button" 
-                                                        onClick={ handleClickJump }
-                                                        className="bg-gray-600 text-white w-40 py-1 cursor-pointer hover:bg-gray-700 rounded transition-colors"
-                                                    >Saltar</button>
-
-                                                    <button 
-                                                        type="button" 
-                                                        onClick={ handleClickOK }
-                                                        className="bg-green-600 text-white w-40 py-1 cursor-pointer hover:bg-green-700 rounded transition-colors"
-                                                    >Ok</button>
+                                                        <button 
+                                                            type="button" 
+                                                            className=" rounded bg-green-500 w-32 py-2 text-white font-bold text-xs flex uppercase justify-center items-center gap-5 p-2 hover:bg-green-600 transition-colors"
+                                                            onClick={ handleClickOK }
+                                                        >
+                                                            <BookmarkCheck size={ 22 } />    
+                                                            Ok
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                    }
-                                </>
-                        }
+                                        }
+                                    </>
+                            }
+                        </div>
                     </div>
-                </div>
             }
         </>
     )
