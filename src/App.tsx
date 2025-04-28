@@ -174,21 +174,29 @@ function App() {
                                                 <table className="table-auto border border-black border-collapse w-full mt-5">
                                                     <thead className="bg-[#FF99FF]">
                                                         <tr className="text-sm">
+                                                            <th className="border border-black px-2 py-2">URL</th>
+                                                            <th className="border border-black px-2 py-2">SERVIDOR</th>
+                                                            <th className="border border-black px-2 py-2">LOCALIDAD</th>
                                                             <th className="border border-black px-2 py-2">ID</th>
                                                             <th className="border border-black px-2 py-2">ESTACIÓN/SIGLAS</th>
                                                             <th className="border border-black px-2 py-2">NOMBRE</th>
+                                                            <th className="border border-black px-2 py-2">TIPO</th>
                                                             <th className="border border-black px-2 py-2">ACCIONES</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody className="bg-[#FFFF00]">
                                                         <tr className="text-sm text-center">
+                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].url }</td>
+                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].server }</td>
+                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].locality }</td>
                                                             <td 
                                                                 className="border border-black px-2 py-1 cursor-pointer"
                                                                 onClick={ () => copyToClipboard(localityChannels[0].ID.toString()) }
                                                             >{ localityChannels[0].ID }</td>
                                                             <td className="border border-black px-2 py-1">{ localityChannels[0].season }</td>
                                                             <td className="border border-black px-2 py-1">{ localityChannels[0].name }</td>
+                                                            <td className="border border-black px-2 py-1">{ localityChannels[0].type }</td>
                                                             <td>
                                                                 <button
                                                                     onClick={ () => copyRowToClipboard(localityChannels[0]) }

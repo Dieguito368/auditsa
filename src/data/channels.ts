@@ -5,7 +5,7 @@ export type Channel = {
     ID: number
     season: string
     name: string
-    type: "TVA" | "TVL" | "TVP"
+    type: "TVA" | "TVL" | "TVP" | "TVN"
 }
 
 type Channels = {
@@ -91,7 +91,7 @@ export const channels: Channels = {
             server: 3.52,
             locality: "CDMX-Monitor3",
             ID: 76,
-            season: "CDMX XHTP-TV - (34.1 TVA)",
+            season: "CDMX XHPTP-TV - (34.1 TVL)",
             name: "TV Mexiquense",
             type: "TVA"
         },
@@ -145,7 +145,7 @@ export const channels: Channels = {
             server: 3.52,
             locality: "CDMX-Monitor3",
             ID: 3577,
-            season: "CDMX XHTCMX-TV - (3.1 TVA)",
+            season: "CDMX XHCTMX-TV - (3.1 TVA)",
             name: "Imagen Televisión",
             type: "TVA"
         },
@@ -183,7 +183,7 @@ export const channels: Channels = {
             ID: 4678,
             season: "CDMX XHTDMX-TV - (6.1 TVL)",
             name: "Multimedios",
-            type: "TVA"
+            type: "TVL"
         },
         {
             url: "Real://192.168.3.52/15/5050",
@@ -478,7 +478,7 @@ export const channels: Channels = {
     ],
     CDMX3_54: [
         {
-            url: "Real://192.168.3.54/18/5050   ",
+            url: "Real://192.168.3.54/18/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
             ID: 2307,
@@ -505,6 +505,33 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
+            url: "Real://192.168.3.54/4/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2419,
+            season: "CDMX SKY TLNOVELES - (220 TVP)",
+            name: "TLNovelas",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/8/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2423,
+            season: "CDMX SKY DE PELICULA - (401 TVP)",
+            name: "De Película",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/19/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2439,
+            season: "CDMX SKY NATGEO - (254 TVP)",
+            name: "National Geographic",
+            type: "TVP"
+        },
+        {
             url: "Real://192.168.3.54/2/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
@@ -523,12 +550,12 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/8/5050",
+            url: "Real://192.168.3.54/30/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
-            ID: 2423,
-            season: "CDMX SKY DE PELICULA - (401 TVP)",
-            name: "De Película",
+            ID: 2490,
+            season: "DISH CLARO SPORTS - (336 TVP)",
+            name: "Claro Sports",
             type: "TVP"
         },
         {
@@ -541,21 +568,120 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
+            url: "Real://192.168.3.54/21/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2588,
+            season: "SKY STD UNIVERSAL - (420 TVP)",
+            name: "UNIVERSAL STUDIO",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/15/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2927,
+            season: "CDMX SKY LIFE - (256 TVP)",
+            name: "Lifetime",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/13/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2930,
+            season: "CDMX SKY COMEDY - (230 TVP)",
+            name: "Comedy Central",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/29/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2931,
+            season: "CDMX SKY DSC KDS - (303 TVP)",
+            name: "Discovery Kids",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/14/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2936,
+            season: "CDMX SKY H2 - (222 TVP)",
+            name: "History Channel 2",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/11/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2938,
+            season: "CDMX SKY AMC - (419 TVP)",
+            name: "AMC",
+            type: "TVP"
+        },
+        {
             url: "Real://192.168.3.54/10/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
-            ID: 2933,
+            ID: 2943,
             season: "CDMX SKY TELEMUNDO INT - (214 TVP)",
             name: "Telemundo Internacional",
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/4/5050",
+            url: "Real://192.168.3.54/16/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
-            ID: 6205,
-            season: "CDMX SKY TLNOVELAS - (202 TVP)",
-            name: "TLNovelas",
+            ID: 3009,
+            season: "DISH MLTPREMIER - (376 TVP)",
+            name: "MultiPremier",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/12/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 3145,
+            season: "CDMX XHSPR.1-TV - (14.1 TVA)",
+            name: "Canal Catorce",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.3.54/28/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 5632,
+            season: "SKY BitMe - (1210 TVP)",
+            name: "BiteMe",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/27/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 5642,
+            season: "SKY PARAMOUNT - (1415 TVP)",
+            name: "Paramount Channel",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/22/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 5646,
+            season: "SKY DSC TURBO - (1222 TVP)",
+            name: "Discovery Turbo",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/23/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 5651,
+            season: "SKY DISNEY JR - (1329 TVP)",
+            name: "Disney JR",
             type: "TVP"
         },
         {
@@ -568,12 +694,12 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/7/5050",
+            url: "Real://192.168.3.54/31/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
-            ID: 7194,
-            season: "SKY ESPN 4 - (1566 TVP)",
-            name: "ESPN 4",
+            ID: 6539,
+            season: "SKY CINEMAX - (1423 TVP)",
+            name: "CINEMAX",
             type: "TVP"
         },
         {
@@ -583,6 +709,24 @@ export const channels: Channels = {
             ID: 7207,
             season: "SKY TELEFÓRMULA - (157 TVP)",
             name: "Teleformula",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/25/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 7287,
+            season: "CDMX DISH MULTIMEDIOS (106 TVP)",
+            name: "Multimedios",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/7/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 7794,
+            season: "SKY ESPN 4 - (1566 TVP)",
+            name: "ESPN 4",
             type: "TVP"
         }
     ],
@@ -707,7 +851,245 @@ export const channels: Channels = {
             name: "Excelsior Tv",
             type: "TVA"
         },
-    ], CDMX2_B_RESPALDO: [
-
-    ]
+    ], 
+    CDMX2_B_RESPALDO: [
+        {
+            url: "Real://192.168.80.98/28/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2826,
+            season: "XHTVM-TV - (40.1 TVA Rep)",
+            name: "ADN 40",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/16/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2827,
+            season: "XEIMT-TV - (22.1 TVA Rep)",
+            name: "Canal 22",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/24/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2828,
+            season: "XEIPN-TV - (11.1 TVA Rep)",
+            name: "Canal Once",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/20/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2829,
+            season: "XEQ-TV - (9.1 TVA Rep)",
+            name: "NU9VE",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/17/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2830,
+            season: "XEW-TV - (2.1 TVA Rep)",
+            name: "Estrellas 2",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/22/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2831,
+            season: "XHDF-TV - (1.1 TVA Rep)",
+            name: "Azteca UNO",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/18/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2832,
+            season: "XHGC-TV - (5.1 TVA Rep)",
+            name: "Canal 5",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/21/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2833,
+            season: "XHIMT-TV - (7.1 TVA Rep)",
+            name: "Azteca 7",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/23/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 2834,
+            season: "XHTV-TV - (4.1 TVA Rep)",
+            name: "Foro Tv",
+            type: "TVA"
+        },
+        {
+            url: "Real://192.168.80.98/26/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 3583,
+            season: "XHCTMX-TV - (3.1 TVA Rep)",
+            name: "Imagen Tv",
+            type: "TVA"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7925,
+            season: "CDMX2 XHPTP-TV - (34.1 TVL)",
+            name: "TV Mexiquense",
+            type: "TVL"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7926,
+            season: "CDMX2 XHSPR.1-TV - (14.1 TVN)",
+            name: "Canal Catorce",
+            type: "TVN"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7927,
+            season: "CDMX2 XHCDM.1-TV - (21.1 TVN)",
+            name: "Capital 21",
+            type: "TVN"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7929,
+            season: "CDMX2 XHIMT.2-TV - (7.2 TVN)",
+            name: "A+",
+            type: "TVN"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7930,
+            season: "CDMX2 XEIPN.2-TV - (11.2 TVN)",
+            name: "Once Niños",
+            type: "TVN"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7931,
+            season: "CDMX2 XHTDMX-TV - (6.1 TVL)",
+            name: "Multimedios",
+            type: "TVL"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7932,
+            season: "CDMX2 XHFAMX-TV - (8.1 TVL)",
+            name: "El Heraldo Tv",
+            type: "TVL"
+        },
+        {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7933,
+            season: "CDMX2 XHTDMX.2-TV - (6.2 TVL)",
+            name: "Multimedios",
+            type: "TVL"
+        },
+        {
+            url: "Real://192.168.80.98/27/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 4844,
+            season: "IZZI TUDN - (501 TVP Rep)",
+            name: "TUDN",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.80.98/25/5050",
+            server: "B",
+            locality: "CDMX2",
+            ID: 5261,
+            season: "IZZI HERALDO - (151 TVP)",
+            name: "Heraldo Tv",
+            type: "TVP"
+        },
+    ],
+    ZAP_GLD_RESPALDO : [
+        {
+            url: "",
+            locality: "ZAPOPAN",
+            ID: 7954,
+            season: "ZAP XHG-TV - (4.1 TVL)",
+            name: "Canal 4 Local",
+            type: "TVL"
+        },
+        {
+            url: "",
+            locality: "GUADALAJARA",
+            ID: 7958,
+            season: "GDL XHGJG-TV - (17.1 TVL)",
+            name: "Canal 7 Jalisco",
+            type: "TVL"
+        },
+        {
+            url: "",
+            locality: "ZAPOPAN",
+            ID: 7964,
+            season: "ZAP XEDK-TV - (13.1 TVL)",
+            name: "Canal 13",
+            type: "TVL"
+        },
+        {
+            url: "",
+            locality: "GUADALAJARA",
+            ID: 7965,
+            season: "XHTDJA-TV - Multimedios (6.1 TVL)",
+            name: "Multimedios",
+            type: "TVL"
+        },
+        {
+            url: "",
+            locality: "ZAPOPAN",
+            ID: 7966,
+            season: "ZAP XHQMGU-TV - (10.1 TVL)",
+            name: "Quiero Tv",
+            type: "TVL"
+        },
+        {
+            url: "",
+            locality: "GUADALAJARA",
+            ID: 7969,
+            season: "GDL XHUDG-TV - (44.2 TVL)",
+            name: "Canal 44.2 U de G",
+            type: "TVL"
+        },
+        {
+            url: "",
+            locality: "GUADALAJARA",
+            ID: 7972,
+            season: "GDL-A XEWO-TV - (4.2 TVL Rep)",
+            name: "Vision",
+            type: "TVL"
+        }
+    ] 
 }
