@@ -8,7 +8,7 @@ import 'animate.css';
 import { toast, ToastContainer } from "react-toastify";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { ArrowRight, BookmarkCheck, CheckCircle, ChevronRight, ClipboardPaste, Server, Wifi } from "lucide-react";
+import { ArrowRight, BookmarkCheck, CheckCircle, ClipboardPaste } from "lucide-react";
 
 function App() {
     const [ selectedUser, setSelectedUser ] = useState<string>("");
