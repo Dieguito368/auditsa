@@ -51,7 +51,7 @@ const UserModal = ({ selectedUser, setSelectedUser,  setIsVisibleModal, setIsInv
 
     return (
         <div className="bg-black/60 w-full h-screen flex items-center justify-center">
-            <div className="bg-white w-1/3 rounded-xl animate__animated animate__fadeInDown">
+            <div className="bg-white md:1/2 lg:w-1/3 w-3/4 rounded-xl animate__animated animate__fadeInDown">
                 <div className="border-b-4 border-orange-600 p-5 text-center font-black text-5xl">Auditsa</div>
                 
                 <div className="p-10">

@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import UserModal from "./components/UserModal";
 import { socket } from './utils/socket'; 
+import { toast, ToastContainer } from "react-toastify";
+import { ArrowRight, BookmarkCheck, CheckCircle, ClipboardPaste } from "lucide-react";
 import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
+import UserModal from "./components/UserModal";
 import { Channel, channels } from "./data/channels";
+import { localities } from "./data/localities";
 import 'primeicons/primeicons.css';
 import 'animate.css';
-import { toast, ToastContainer } from "react-toastify";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
-import { ArrowRight, BookmarkCheck, CheckCircle, ClipboardPaste } from "lucide-react";
 
 function App() {
     const [ selectedUser, setSelectedUser ] = useState<string>("");
@@ -68,7 +67,6 @@ function App() {
                 toast.success("Copiado");
             })
             .catch((err) => {
-                console.error("Error al copiar: ", err);
                 toast.error("Error al copiar");
                 console.log("Error al copiar: ", err);
             });
@@ -108,46 +106,56 @@ function App() {
                             {
                                 isInvited ?
                                     <>
-                                        <h2 className="text-xl font-bold mb-4">Tabla de Localidades</h2>
+                                        { 
+                                            userList.length > 0 ?
+                                                <>
+                                                    <h2 className="text-xl font-bold mb-4">Localidades ACAM</h2>
+                                                    
+                                                    <div className="overflow-x-auto">
+                                                        <table className="min-w-full border-collapse overflow-x-auto">
+                                                            <thead className="bg-slate-100">
+                                                                <tr>
+                                                                    <th className="border border-gray-300 px-5 py-2 text-sm"></th>
+                                                                    {
+                                                                        userList.map(user => (
+                                                                            <th key={ user.name } className="border border-gray-300 px-2 py-3 text-sm uppercase">
+                                                                                { user.name}
+                                                                            </th>
+                                                                        ))
+                                                                    }
+                                                                </tr>
+                                                            </thead>
 
-                                        <div className="overflow-x-auto">
-                                            <table className="min-w-full border-collapse overflow-x-auto">
-                                                <thead className="bg-slate-100">
-                                                    <tr>
-                                                        <th className="border border-gray-300 px-5 py-2 text-sm">Usuario</th>
-                                                        {
-                                                            Object.keys(channels).map(loc => (
-                                                                <th key={ loc } className="border border-gray-300 px-2 py-1 text-sm">
-                                                                    { loc.replace(/_/g, " ") }
-                                                                </th>
-                                                            ))
-                                                        }
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                    {
-                                                        userList.map(user => (
-                                                            <tr key={ user.name }>
-                                                                <td className="border border-gray-300 px-2 py-3 font-semibold text-center text-sm">{ user.name }</td>
+                                                            <tbody>
                                                                 {
-                                                                    Object.keys(channels).map(loc => (
-                                                                        <td
-                                                                            key={ loc }
-                                                                            className={`border border-gray-300 px-2 py-1 text-center ${
-                                                                                user.locality === loc ? "bg-green-500 text-white font-bold" : ""
-                                                                            }`}
-                                                                        >
-                                                                            { user.locality === loc ? <CheckCircle width={ 20 } className="mx-auto" /> : "" }
-                                                                        </td>
+                                                                    localities.map(locality => (
+                                                                        <tr key={ locality.code }>
+                                                                            <th className="border border-gray-300 px-2 py-3 font-semibold text-center text-sm w-1/2">{ locality.name }</th>
+
+                                                                            { 
+                                                                                userList.map(user => (
+                                                                                    <td 
+                                                                                        key={ user.name }
+                                                                                        className={ 
+                                                                                            `border border-gray-300 px-2 py-1 text-center animate__animated ${
+                                                                                            user.locality === locality.code ? "bg-green-500 text-white animate__fadeIn": ""}` 
+                                                                                    }> 
+                                                                                        { user.locality === locality.code ? <CheckCircle width={ 20 } className="mx-auto" /> : "" }
+                                                                                    </td>
+                                                                                ))
+                                                                            }
+                                                                        </tr>
                                                                     ))
                                                                 }
-                                                            </tr>
-                                                        ))
-                                                    }
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </>
+                                            :
+
+                                            <h2 className="text-xl uppercase text-center text-gray-600 font-black mt-10">No hay usuarios conectados</h2>
+                                        }
+
                                     </>
                                 :
                                     <>
@@ -163,11 +171,11 @@ function App() {
                                                 value={ selectedLocality }
                                                 onChange={ handleChangeLocality }
                                                 options={
-                                                    Object.keys(channels)
-                                                        .filter(loc => !occupied.includes(loc) || loc === selectedLocality)
+                                                    localities
+                                                        .filter(loc => !occupied.includes(loc.code) || loc.code === selectedLocality)
                                                         .map(loc => ({
-                                                            label: loc.replace(/_/g, ' '),
-                                                            value: loc
+                                                            label: loc.name,
+                                                            value: loc.code
                                                         }))
                                                 }
                                                 placeholder="Selecciona una localidad"
@@ -178,41 +186,45 @@ function App() {
 
                                         {
                                             localityChannels.length > 0 &&
-                                                <div className="mt-5">
+                                                <div className="mt-5 animate__animated animate__fadeIn">
                                                     <p className="mb-5">{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
 
-                                                    <DataTable 
-                                                        value={ localityChannels[0] ? [localityChannels[0]] : [] } 
-                                                        showGridlines 
-                                                        tableStyle={{ fontSize: "15px" }}
-                                                    >
-                                                        <Column field="ID" header="ID"
-                                                            body={ (rowData: any) => (
-                                                                <div
-                                                                  onClick={ () => copyToClipboard(rowData.ID) }
-                                                                  className="cursor-pointer text-blue-500"
-                                                                >
-                                                                  { rowData.ID }
-                                                                </div>
-                                                              )}
-                                                            ></Column>
-                                                        <Column field="season" header="ESTACIÓN/SIGLAS" ></Column>
-                                                        <Column field="name" header="NOMBRE"></Column>
-                                                        <Column 
-                                                            header="Acciones"
-                                                            body={ 
-                                                                (rowData: Channel) => (
-                                                                    <button
-                                                                        onClick={ () => copyRowToClipboard(rowData) }
-                                                                        className="border flex border-gray-700 text-sm  items-center  gap-2 hover:bg-black hover:text-white font-semibold px-3 py-1 rounded cursor-pointer transition-colors"
-                                                                    >
-                                                                        <ClipboardPaste width={ 16 } />
-                                                                        Drive
-                                                                    </button>
-                                                                )
-                                                            }
-                                                        ></Column>
-                                                    </DataTable>
+                                                    <div className="overflow-x-auto">
+                                                        <table className="min-w-full border-collapse overflow-x-auto">
+                                                            <thead className="bg-slate-100">
+                                                                <tr>
+                                                                    <td className="border border-gray-300 px-5 py-4 text-sm font-bold text-center">ID</td>
+                                                                    <td className="border border-gray-300 px-5 py-4 text-sm font-bold text-center">ESTACIÓN/SIGLAS</td>
+                                                                    <td className="border border-gray-300 px-5 py-4 text-sm font-bold text-center">NOMBRE</td>
+                                                                    <td className="border border-gray-300 px-5 py-4 text-sm font-bold text-center">ACCIONES</td>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td 
+                                                                        className="border border-gray-300 px-5 py-4 text-center text-sm"
+                                                                        onClick={ () => copyToClipboard(localityChannels[0].ID.toString()) }
+                                                                    >{ localityChannels[0].ID }</td>
+                                                                    <td 
+                                                                        className="border border-gray-300 px-5 py-4 text-center text-sm"
+                                                                    >{ localityChannels[0].season }</td>
+                                                                    <td 
+                                                                        className="border border-gray-300 px-5 py-4 text-center text-sm"
+                                                                    >{ localityChannels[0].name }</td>
+                                                                    <td className="border border-gray-300 px-5 py-4 text-sm flex justify-center">
+                                                                        <button
+                                                                            onClick={ () => copyRowToClipboard(localityChannels[0]) }
+                                                                            className="border border-gray-700 text-sm flex items-center gap-2 hover:bg-black hover:text-white font-semibold px-3 py-1 rounded cursor-pointer transition-colors"
+                                                                        >
+                                                                            <ClipboardPaste width={ 16 } />
+                                                                            Drive
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
 
                                                     <div className="flex justify-center gap-16 mt-8">
                                                         <button 
