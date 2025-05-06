@@ -1021,7 +1021,7 @@ export const channels: Channels = {
             locality: "CDMX2",
             ID: 7933,
             season: "CDMX2 XHTDMX.2-TV - (6.2 TVL)",
-            name: "Multimedios",
+            name: "Milenio",
             type: "TVL"
         },
         {
