@@ -202,6 +202,15 @@ export const channels: Channels = {
             season: "CDMX XHTDMX.2-TV - (6.2 TVL)",
             name: "Milenio",
             type: "TVA"
+        },
+        {
+            url: "",
+            server: 3.52,
+            locality: "CDMX-Monitor3",
+            ID: 7981,
+            season: "CDMX XHMTCH-TV - (6.4 TVL)",
+            name: "Pop Corn",
+            type: "TVL"
         }
     ],
     CDMX3_53: [
