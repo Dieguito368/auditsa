@@ -1025,6 +1025,15 @@ export const channels: Channels = {
             type: "TVL"
         },
         {
+            url: "",
+            server: "B",
+            locality: "CDMX2",
+            ID: 7984,
+            season: "CDMX2 XHMTCH-TV - (6.4 TVL)",
+            name: "Pop Corn",
+            type: "TVL"
+        },
+        {
             url: "Real://192.168.80.98/27/5050",
             server: "B",
             locality: "CDMX2",
