@@ -105,42 +105,6 @@ export const channels: Channels = {
             type: "TVA"
         },
         {
-            url: "Real://192.168.3.52/24/5050",
-            server: 3.52,
-            locality: "CDMX-Monitor3",
-            ID: 2416,
-            season: "CDMX SKY ESPN - (551 TVP)",
-            name: "ESPN",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.52/16/5050",
-            server: 3.52,
-            locality: "CDMX-Monitor3",
-            ID: 2944,
-            season: "CDMX SKY TLC - (211 TVP)",
-            name: "TLC",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.52/17/5050",
-            server: 3.52,
-            locality: "CDMX-Monitor3",
-            ID: 3004,
-            season: "DISH MC - (372 TVP)",
-            name: "Multicanal",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.52/30/5050",
-            server: 3.52,
-            locality: "CDMX-Monitor3",
-            ID: 3005,
-            season: "CDMX DISH MVS TV - (205 TVP)",
-            name: "MVS TV",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.52/4/5050",
             server: 3.52,
             locality: "CDMX-Monitor3",
@@ -193,6 +157,44 @@ export const channels: Channels = {
             season: "CDMX XHFAMX-TV - (8.1 TVL)",
             name: "El Heraldo TV",
             type: "TVA"
+        }
+    ],
+    CDMX3_137: [
+        {
+            url: "Real://192.168.3.52/24/5050",
+            server: 3.52,
+            locality: "CDMX-Monitor3",
+            ID: 2416,
+            season: "CDMX SKY ESPN - (551 TVP)",
+            name: "ESPN",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.52/16/5050",
+            server: 3.52,
+            locality: "CDMX-Monitor3",
+            ID: 2944,
+            season: "CDMX SKY TLC - (211 TVP)",
+            name: "TLC",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.52/17/5050",
+            server: 3.52,
+            locality: "CDMX-Monitor3",
+            ID: 3004,
+            season: "DISH MC - (372 TVP)",
+            name: "Multicanal",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.52/30/5050",
+            server: 3.52,
+            locality: "CDMX-Monitor3",
+            ID: 3005,
+            season: "CDMX DISH MVS TV - (205 TVP)",
+            name: "MVS TV",
+            type: "TVP"
         },
         {
             url: "Real://192.168.3.52/17/5050",
