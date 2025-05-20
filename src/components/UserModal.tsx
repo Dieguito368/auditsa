@@ -15,6 +15,9 @@ const UserModal = ({ selectedUser, setSelectedUser,  setIsVisibleModal, setIsInv
         { name: 'Alexis', code: 'Alexis' },
         { name: 'Adrian', code: 'Adrian' },
         { name: 'Diego', code: 'Diego' },
+        { name: 'Rodrigo', code: 'Rodrigo' },
+        { name: 'Karla', code: 'Karla' },
+        { name: 'Antonio', code: 'Antonio' }
     ];
 
     const [ missingUsers, setMissingUsers ] = useState(users);

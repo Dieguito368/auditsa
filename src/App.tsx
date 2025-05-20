@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { socket } from './utils/socket'; 
 import { toast, ToastContainer } from "react-toastify";
-import { ArrowRight, BookmarkCheck, CheckCircle, ClipboardPaste } from "lucide-react";
+import { ArrowRight, BookmarkCheck, CheckCircle, ClipboardPaste, X } from "lucide-react";
 import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
 import UserModal from "./components/UserModal";
 import { Channel, channels } from "./data/channels";
@@ -51,6 +51,14 @@ function App() {
 
             setSelectedLocality("");
         }
+    }
+    
+    const cancelLocality = () => {
+        socket.emit("releaseLocality", selectedLocality);
+    
+        setSelectedLocality("");
+
+        setLocalityChannels([]);
     }
 
     const handleClickJump = () => {
@@ -187,7 +195,18 @@ function App() {
                                         {
                                             localityChannels.length > 0 &&
                                                 <div className="mt-5 animate__animated animate__fadeIn">
-                                                    <p className="mb-5">{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
+                                                    <div className="flex justify-between items-center mb-10">
+                                                        <p>{ channels[selectedLocality].length - localityChannels.length } / { channels[selectedLocality].length }</p>
+
+                                                        <button 
+                                                            type="button" 
+                                                            onClick={ cancelLocality }
+                                                            className=" rounded bg-red-500 w-32 py-2 text-white font-bold text-xs flex uppercase justify-center items-center gap-2 p-2 hover:bg-red-600 transition-colors"
+                                                        >
+                                                            <X size={ 22 } />
+                                                            Cancelar
+                                                        </button>
+                                                    </div>
 
                                                     <div className="overflow-x-auto">
                                                         <table className="min-w-full border-collapse overflow-x-auto">
