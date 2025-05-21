@@ -8,6 +8,7 @@ export const localities: Locality[] = [
     { name: "CDMX 3.52", code: "CDMX3_52" },
     { name: "CDMX 3.137", code: "CDMX3_137" },
     { name: "CDMX 3.53", code: "CDMX3_53" },
+    { name: "CDMX 3.138", code: "CDMX3_138" },
     { name: "CDMX 3.54", code: "CDMX3_54" },
     { name: "CDMX2 B", code: "CDMX2_B" },
     { name: "ZAPOPAN", code: "ZAPOPAN" },

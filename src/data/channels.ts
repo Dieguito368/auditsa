@@ -217,21 +217,149 @@ export const channels: Channels = {
     ],
     CDMX3_53: [
         {
-            url: "Real://192.168.3.53/24/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 1677,
-            season: "SKY E! - (206 TVP)",
-            name: "E! Entertainment",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.53/8/5050",
             server: 3.53,
             locality: "CDMX-Monitor4",
             ID: 1704,
             season: "CDMX SKY TNT - (415 TVP)",
             name: "TNT",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/3/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 1709,
+            season: "CDMX SKY SONY - (202 TVP)",
+            name: "Sony",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/5/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2007,
+            season: "CDMX SKY A&E - (212 TVP)",
+            name: "A&E",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/1/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2317,
+            season: "CDMX SKY FOX SPORTS - (553 TVP)",
+            name: "Fox Sports",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/6/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2421,
+            season: "CDMX SKY ANIMAL - (252 TVP)",
+            name: "Animal Planet",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/2/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2422,
+            season: "CDMX SKY BANDAMAX - (711 TVP)",
+            name: "Bandamax",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/4/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2589,
+            season: "CDMX SKY CINECANAL - (416 TVP)",
+            name: "Cinecanal",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/12/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2885,
+            season: "CDMX SKY TNT SERIES - (221 TVP)",
+            name: "TNT Series",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/9/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2939,
+            season: "CDMX SKY MTV - (701 TVP)",
+            name: "MTV",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/11/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 2941,
+            season: "CDMX SKY NICK - (307 TVP)",
+            name: "Nickelodeon",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/10/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 4027,
+            season: "SKY NICK JR - (325 TVP)",
+            name: "Nick JR",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/15/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 4122,
+            season: "CDMX SKY ESPN 3 - (563 TVP)",
+            name: "ESPN 3",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/7/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 4825,
+            season: "CDMX SKY DST COMEDIA - (228 TVP)",
+            name: "Distrito Comedia",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/13/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 7157,
+            season: "CDMX SKY CARTOONITO - (323 TVP)",
+            name: "Cartoonito",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.53/14/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 7601,
+            season: "SKY TNT Novelas - (215 TVP)",
+            name: "TNT Novelas",
+            type: "TVP"
+        },
+    ],
+    CDMX3_138: [
+        {
+            url: "Real://192.168.3.53/24/5050",
+            server: 3.53,
+            locality: "CDMX-Monitor4",
+            ID: 1677,
+            season: "SKY E! - (206 TVP)",
+            name: "E! Entertainment",
             type: "TVP"
         },
         {
@@ -259,15 +387,6 @@ export const channels: Channels = {
             ID: 1708,
             season: "SKY WARNER - (205 TVP)",
             name: "Warner",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/3/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 1709,
-            season: "CDMX SKY SONY - (202 TVP)",
-            name: "Sony",
             type: "TVP"
         },
         {
@@ -334,30 +453,12 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.53/5/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2007,
-            season: "CDMX SKY A&E - (212 TVP)",
-            name: "A&E",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.53/18/5050",
             server: 3.53,
             locality: "CDMX-Monitor4",
             ID: 2008,
             season: "CDMX SKY HISTORY - (253 TVP)",
             name: "History Channel",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/1/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2317,
-            season: "CDMX SKY FOX SPORTS - (553 TVP)",
-            name: "Fox Sports",
             type: "TVP"
         },
         {
@@ -370,42 +471,6 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.53/6/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2421,
-            season: "CDMX SKY ANIMAL - (252 TVP)",
-            name: "Animal Planet",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/2/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2422,
-            season: "CDMX SKY BANDAMAX - (711 TVP)",
-            name: "Bandamax",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/4/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2589,
-            season: "CDMX SKY CINECANAL - (416 TVP)",
-            name: "Cinecanal",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/12/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2885,
-            season: "CDMX SKY TNT SERIES - (221 TVP)",
-            name: "TNT Series",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.53/23/5050",
             server: 3.53,
             locality: "CDMX-Monitor4",
@@ -415,75 +480,12 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.53/9/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2939,
-            season: "CDMX SKY MTV - (701 TVP)",
-            name: "MTV",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/11/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 2941,
-            season: "CDMX SKY NICK - (307 TVP)",
-            name: "Nickelodeon",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/10/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 4027,
-            season: "SKY NICK JR - (325 TVP)",
-            name: "Nick JR",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/15/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 4122,
-            season: "CDMX SKY ESPN 3 - (563 TVP)",
-            name: "ESPN 3",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/7/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 4825,
-            season: "CDMX SKY DST COMEDIA - (228 TVP)",
-            name: "Distrito Comedia",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.53/26/5050",
             server: 3.53,
             locality: "CDMX-Monitor4",
             ID: 6813,
             season: "CDMX SKY STAR - (201 TVP)",
             name: "STAR Channel",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/13/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 7157,
-            season: "CDMX SKY CARTOONITO - (323 TVP)",
-            name: "Cartoonito",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.53/14/5050",
-            server: 3.53,
-            locality: "CDMX-Monitor4",
-            ID: 7601,
-            season: "SKY TNT Novelas - (215 TVP)",
-            name: "TNT Novelas",
             type: "TVP"
         },
     ],
