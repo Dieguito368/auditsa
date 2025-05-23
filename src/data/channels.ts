@@ -1103,7 +1103,7 @@ export const channels: Channels = {
             locality: "GUADALAJARA",
             ID: 7972,
             season: "GDL-A XEWO-TV - (4.2 TVL Rep)",
-            name: "Vision",
+            name: "+ Vision",
             type: "TVL"
         }
     ] 
