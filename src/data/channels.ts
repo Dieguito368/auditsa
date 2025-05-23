@@ -491,15 +491,6 @@ export const channels: Channels = {
     ],
     CDMX3_54: [
         {
-            url: "Real://192.168.3.54/18/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 2307,
-            season: "SKY SPACE - (418 TVP)",
-            name: "SPACE",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.54/9/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
@@ -536,15 +527,6 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/19/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 2439,
-            season: "CDMX SKY NATGEO - (254 TVP)",
-            name: "National Geographic",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.54/2/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
@@ -563,15 +545,6 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/30/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 2490,
-            season: "DISH CLARO SPORTS - (336 TVP)",
-            name: "Claro Sports",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.54/3/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
@@ -581,39 +554,12 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/21/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 2588,
-            season: "SKY STD UNIVERSAL - (420 TVP)",
-            name: "UNIVERSAL STUDIO",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.54/15/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 2927,
-            season: "CDMX SKY LIFE - (256 TVP)",
-            name: "Lifetime",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.54/13/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
             ID: 2930,
             season: "CDMX SKY COMEDY - (230 TVP)",
             name: "Comedy Central",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.54/29/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 2931,
-            season: "CDMX SKY DSC KDS - (303 TVP)",
-            name: "Discovery Kids",
             type: "TVP"
         },
         {
@@ -644,15 +590,6 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/16/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 3009,
-            season: "DISH MLTPREMIER - (376 TVP)",
-            name: "MultiPremier",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.54/12/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
@@ -660,6 +597,89 @@ export const channels: Channels = {
             season: "CDMX XHSPR.1-TV - (14.1 TVA)",
             name: "Canal Catorce",
             type: "TVA"
+        },
+        {
+            url: "Real://192.168.3.54/5/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 6425,
+            season: "SKY SKY SPORTS 1 - (1501 TVP)",
+            name: "Sky Sports 1",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/6/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 7207,
+            season: "SKY TELEFÓRMULA - (157 TVP)",
+            name: "Teleformula",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/7/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 7794,
+            season: "SKY ESPN 4 - (1566 TVP)",
+            name: "ESPN 4",
+            type: "TVP"
+        }
+    ],
+    CDMX3_159: [
+        {
+            url: "Real://192.168.3.54/18/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2307,
+            season: "SKY SPACE - (418 TVP)",
+            name: "SPACE",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/19/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2439,
+            season: "CDMX SKY NATGEO - (254 TVP)",
+            name: "National Geographic",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/30/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2490,
+            season: "DISH CLARO SPORTS - (336 TVP)",
+            name: "Claro Sports",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/21/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2588,
+            season: "SKY STD UNIVERSAL - (420 TVP)",
+            name: "UNIVERSAL STUDIO",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/29/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2931,
+            season: "CDMX SKY DSC KDS - (303 TVP)",
+            name: "Discovery Kids",
+            type: "TVP"
+        },
+        {
+            url: "Real://192.168.3.54/16/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 3009,
+            season: "DISH MLTPREMIER - (376 TVP)",
+            name: "MultiPremier",
+            type: "TVP"
         },
         {
             url: "Real://192.168.3.54/28/5050",
@@ -698,15 +718,6 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
-            url: "Real://192.168.3.54/5/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 6425,
-            season: "SKY SKY SPORTS 1 - (1501 TVP)",
-            name: "Sky Sports 1",
-            type: "TVP"
-        },
-        {
             url: "Real://192.168.3.54/31/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
@@ -715,33 +726,6 @@ export const channels: Channels = {
             name: "CINEMAX",
             type: "TVP"
         },
-        {
-            url: "Real://192.168.3.54/6/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 7207,
-            season: "SKY TELEFÓRMULA - (157 TVP)",
-            name: "Teleformula",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.54/25/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 7287,
-            season: "CDMX DISH MULTIMEDIOS (106 TVP)",
-            name: "Multimedios",
-            type: "TVP"
-        },
-        {
-            url: "Real://192.168.3.54/7/5050",
-            server: 3.54,
-            locality: "CDMX-Monitor5",
-            ID: 7794,
-            season: "SKY ESPN 4 - (1566 TVP)",
-            name: "ESPN 4",
-            type: "TVP"
-        }
     ],
     CDMX2_B: [
         {
