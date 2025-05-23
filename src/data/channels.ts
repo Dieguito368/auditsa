@@ -554,6 +554,15 @@ export const channels: Channels = {
             type: "TVP"
         },
         {
+            url: "Real://192.168.3.54/15/5050",
+            server: 3.54,
+            locality: "CDMX-Monitor5",
+            ID: 2927,
+            season: "CDMX SKY LIFE - (256 TVP)",
+            name: "Lifetime",
+            type: "TVP"
+        },
+        {
             url: "Real://192.168.3.54/13/5050",
             server: 3.54,
             locality: "CDMX-Monitor5",
